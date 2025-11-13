@@ -5,10 +5,13 @@ import java.util.Scanner;
 public abstract class DrinkBase extends MenuItem {
     protected String cupSize;
     protected String teaType;
+    protected String flavor;
+    protected String milkType;
     protected ArrayList<String> toppings;
     protected String sugarLevel;
     protected String iceLevel;
     protected String note;
+
     public DrinkBase(String name, double price) {
         super(name, price);
         this.toppings = new ArrayList<>();
@@ -61,8 +64,21 @@ public abstract class DrinkBase extends MenuItem {
     public void setNote(String note) {
         this.note = note;
     }
-//Cup size:
+    public String getFlavor() {
+        return flavor;
+    }
+    public void setFlavor(String flavor) {
+        this.flavor = flavor;
+    }
 
+    public String getMilkType() {
+        return milkType;
+    }
+    public void setMilkType(String milkType) {
+        this.milkType = milkType;
+    }
+
+    //Cup size:
     protected String askCupSize(Scanner scanner) {
         System.out.println("\nChoose your cup size:");
         System.out.println("- Press M for Medium ($1.00)");
@@ -87,52 +103,99 @@ public abstract class DrinkBase extends MenuItem {
 
     //Sugar level:
     protected String askSugarLevel(Scanner scanner) {
-        System.out.println("\nSugar Level Options:");
-        System.out.println("  0% | 25% | 50% | 75% | 100% (default)");
-        System.out.print("Enter sugar level (%): ");
-        String input = scanner.nextLine().trim();
+        System.out.println("\n🧂 Choose Your Sugar Level:");
+        System.out.println("-----------------------------");
+        System.out.println("Press 1 - for 0%");
+        System.out.println("Press 2 - for 25%");
+        System.out.println("Press 3 - for 50%");
+        System.out.println("Press 4 - for 75%");
+        System.out.println("Press 5 - for 100%");
+        System.out.println("-----------------------------");
 
+        String sugarLevel = "";
+        while (true) {
+            System.out.print("Enter your choice (1–5): ");
+            String choice = scanner.nextLine().trim();
 
-        if (input.isEmpty()) input = "100%";
-        else if (!input.matches("0%|25%|50%|75%|100%")) {
-            System.out.println("Invalid option. Defaulting to 100%.");
-            input = "100%";
+            switch (choice) {
+                case "1" -> sugarLevel = "0%";
+                case "2" -> sugarLevel = "25%";
+                case "3" -> sugarLevel = "50%";
+                case "4" -> sugarLevel = "75%";
+                case "5" -> sugarLevel = "100%";
+                default -> {
+                    System.out.println(" Invalid input! Please choose a number between 1–5.");
+                    continue;
+                }
+            }
+            break;
         }
-        sugarLevel = input;
+
+        this.sugarLevel = sugarLevel;
         return sugarLevel;
     }
 
 
 //Ice level:
-    protected String askIceLevel(Scanner scanner) {
-        System.out.println("\nIce Level Options:");
-        System.out.println("  Regular | Less Ice | No Ice | Hot (+$1.00)");
-        System.out.print("Enter your choice: ");
-        String input = scanner.nextLine().trim();
-        if (input.isEmpty()) input = "Regular";
-        return iceLevel;
+protected String askIceLevel(Scanner scanner) {
+    System.out.println("\n🧊 Choose Your Ice Level: 🧊");
+    System.out.println("-----------------------------");
+    System.out.println("Press 1 - for Regular Ice");
+    System.out.println("Press 2 - for Less Ice");
+    System.out.println("Press 3 - for No Ice");
+    System.out.println("Press 4 - for Hot (+$1.00)");
+    System.out.println("-----------------------------");
 
-    }
-//Tea type:
-    protected String askTeaType(Scanner scanner) {
-        System.out.println("\nChoose tea type:");
-        System.out.println("  Black | Green | Oolong" );
-        System.out.print("Enter your choice: ");
-        while (true) {
-            String input = scanner.nextLine().trim();
+    String iceLevel = "";
+    while (true) {
+        System.out.print("Enter your choice (1–4): ");
+        String choice = scanner.nextLine().trim();
 
-            switch (input.toLowerCase()) {
-                case "black" -> teaType = "Black";
-                case "green" -> teaType = "Green";
-                case "oolong" -> teaType = "Oolong";
-                default -> {
-                    System.out.println(" Invalid option. Please choose: Black, Green, or Oolong.");
-                    continue;
-                }
+        switch (choice) {
+            case "1" -> iceLevel = "Regular";
+            case "2" -> iceLevel = "Less Ice";
+            case "3" -> iceLevel = "No Ice";
+            case "4" -> iceLevel = "Hot";
+            default -> {
+                System.out.println(" Invalid input! Please choose a number between 1–4.");
+                continue;
             }
-            return teaType;
         }
+        break;
     }
+
+    this.iceLevel = iceLevel;
+    return iceLevel;
+}
+//Tea type:
+protected String askTeaType(Scanner scanner) {
+    System.out.println("\n🍃 Choose Your Tea Type 🍃:");
+    System.out.println("-----------------------------");
+    System.out.println("Press 1 - for Black Tea");
+    System.out.println("Press 2 - for Green Tea");
+    System.out.println("Press 3 - for Oolong Tea");
+    System.out.println("-----------------------------");
+
+    String teaType = "";
+    while (true) {
+        System.out.print("Enter your choice (1–3): ");
+        String choice = scanner.nextLine().trim();
+
+        switch (choice) {
+            case "1" -> teaType = "Black Tea";
+            case "2" -> teaType = "Green Tea";
+            case "3" -> teaType = "Oolong Tea";
+            default -> {
+                System.out.println("Invalid input! Please choose a number between 1–3.");
+                continue;
+            }
+        }
+        break;
+    }
+
+    this.teaType = teaType;
+    return teaType;
+}
 
 //Toppings
     protected ArrayList<String> askToppings(Scanner scanner) {
@@ -184,7 +247,7 @@ public abstract class DrinkBase extends MenuItem {
             String answer = scanner.nextLine().trim().toUpperCase();
 
             if (answer.equals("N") || answer.equals("No")) {
-                // User chose not to leave a note
+
                 return "";
             }
             else if (answer.equals("Y") || answer.equals("Yes")) {
@@ -192,7 +255,7 @@ public abstract class DrinkBase extends MenuItem {
                     System.out.print("Enter your note (max 100 words): ");
                     note = scanner.nextLine().trim();
 
-                    // If user just presses Enter, treat as no note
+
                     if (note.isEmpty()) {
                         return "";
                     }
@@ -206,7 +269,7 @@ public abstract class DrinkBase extends MenuItem {
                     }
 
 
-                    System.out.println("✅ Note saved successfully!");
+                    System.out.println("Note saved successfully! ✅ ");
                     return note;
                 }
             }

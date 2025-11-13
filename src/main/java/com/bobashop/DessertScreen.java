@@ -23,12 +23,13 @@ public class DessertScreen {
         public String toString() {
             return name + " (" + flavor + ") - $" + String.format("%.2f", price);
         }
+    }
 
         //Dessert Menu:
         public ArrayList<DessertItem> showDessertMenu() {
             ArrayList<DessertItem> orderList = new ArrayList<>();
 
-            System.out.println("\n🍰 Welcome to the Dessert Menu!");
+            System.out.println("\n Welcome to the Dessert Menu!");
             System.out.println("--------------------------------");
             System.out.println("1) Cream Puff  ($3.00)");
             System.out.println("2) Macaron    ($2.50)");
@@ -113,8 +114,8 @@ public class DessertScreen {
             System.out.println("--------------------------------");
             System.out.printf("Dessert Total: $%.2f%n", total);
 
-            // ✅ Ask for confirmation before checkout
-            System.out.print("\nWould you like to confirm your dessert order? (Y/N): ");
+
+            System.out.print("\nDo you confirm your dessert order? (Y/N): ");
             String confirm = scanner.nextLine().trim().toUpperCase();
 
             if (confirm.equals("Y") || confirm.equals("YES")) {
@@ -125,5 +126,29 @@ public class DessertScreen {
                 return false; // user wants to go back
             }
         }
+
+
+    public MenuItem chooseDessert() {
+        ArrayList<DessertItem> desserts = showDessertMenu();
+
+        if (desserts == null || desserts.isEmpty()) {
+            System.out.println("No desserts selected.");
+            return null;
+        }
+
+        boolean confirmed = confirmDessertOrder(desserts, scanner);
+        if (!confirmed) {
+            return null; // canceled order
+        }
+
+        double total = 0;
+        StringBuilder summary = new StringBuilder("Desserts: ");
+        for (DessertItem d : desserts) {
+            total += d.getPrice();
+            summary.append(d.toString()).append("; ");
+        }
+
+        return new BasicMenuItem(summary.toString(), total);
     }
 }
+

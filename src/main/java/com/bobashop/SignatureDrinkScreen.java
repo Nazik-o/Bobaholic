@@ -1,12 +1,17 @@
 package com.bobashop;
 import java.util.ArrayList;
 import java.util.Scanner;
-public class SpecialtyDrink extends DrinkBase {
-    public SpecialtyDrink(String name, double price) {
+
+public class SignatureDrinkScreen extends DrinkBase {
+
+    public SignatureDrinkScreen(String name, double price) {
         super(name, price);
     }
+    public SignatureDrinkScreen() {
+        super("Specialty Drink", 0.0);
+    }
 
-    public static SpecialtyDrink chooseSpecialtyDrink() {
+    public static SignatureDrinkScreen chooseSpecialtyDrink() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n 🌟Specialty Drinks Menu🌟");
@@ -20,7 +25,7 @@ public class SpecialtyDrink extends DrinkBase {
 
         String choice = scanner.nextLine().trim();
 
-        SpecialtyDrink drink;
+        SignatureDrinkScreen drink;
         switch (choice) {
             case "1" -> drink = createPassionFruitTea();
             case "2" -> drink = createBrownSugarMilkTea();
@@ -44,8 +49,8 @@ public class SpecialtyDrink extends DrinkBase {
             return null;
         }
     }
-    private static SpecialtyDrink createPassionFruitTea() {
-        SpecialtyDrink drink = new SpecialtyDrink("Passion Fruit Tea", 6.75);
+    private static SignatureDrinkScreen createPassionFruitTea() {
+        SignatureDrinkScreen drink = new SignatureDrinkScreen("Passion Fruit Tea", 6.75);
         drink.cupSize = "Large";
         drink.flavor = "Passion Fruit";
         drink.teaType = "Green Tea";
@@ -56,8 +61,8 @@ public class SpecialtyDrink extends DrinkBase {
         drink.iceLevel = "Regular";
         return drink;
     }
-    private static SpecialtyDrink createBrownSugarMilkTea() {
-        SpecialtyDrink drink = new SpecialtyDrink("Brown Sugar Milk Tea", 6.75);
+    private static SignatureDrinkScreen createBrownSugarMilkTea() {
+        SignatureDrinkScreen drink = new SignatureDrinkScreen("Brown Sugar Milk Tea", 6.75);
         drink.cupSize = "Large";
         drink.milkType = "Whole Milk";
         drink.teaType = "Black Tea";
@@ -67,8 +72,8 @@ public class SpecialtyDrink extends DrinkBase {
         drink.iceLevel = "Regular";
         return drink;
     }
-    private static SpecialtyDrink createCoffeeMilkTea() {
-        SpecialtyDrink drink = new SpecialtyDrink("Coffee Milk Tea", 6.75);
+    private static SignatureDrinkScreen createCoffeeMilkTea() {
+        SignatureDrinkScreen drink = new SignatureDrinkScreen("Coffee Milk Tea", 6.75);
         drink.cupSize = "Large";
         drink.teaType = "Black Tea";
         drink.toppings = new ArrayList<>();
@@ -77,8 +82,8 @@ public class SpecialtyDrink extends DrinkBase {
         drink.iceLevel = "Regular";
         return drink;
     }
-    private static SpecialtyDrink createStrawberryMatcha() {
-        SpecialtyDrink drink = new SpecialtyDrink("Strawberry Matcha", 6.75);
+    private static SignatureDrinkScreen createStrawberryMatcha() {
+        SignatureDrinkScreen drink = new SignatureDrinkScreen("Strawberry Matcha", 6.75);
         drink.cupSize = "Medium";
         drink.flavor = "Strawberry";
         drink.toppings = new ArrayList<>();

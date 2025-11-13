@@ -1,5 +1,6 @@
 package com.bobashop;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -25,7 +26,7 @@ public class CheckOutScreen {
             System.out.println("\n️ No items in your order. Returning to main menu...");
             return;
         }
-
+//getting user information
         System.out.print("\n- Enter your name: ");
         String customerName = scanner.nextLine().trim();
 
@@ -55,7 +56,7 @@ public class CheckOutScreen {
 
         double tax = subtotal * SALES_TAX;
 
-        // Ask for tip
+        // Ask for tip, it is optional
         tipPercent = askTipPercentage();
 
         double tipAmount = subtotal * tipPercent;
@@ -79,6 +80,7 @@ public class CheckOutScreen {
             System.out.println("❌ Order canceled. Returning to home screen...");
         }
     }
+
     private double askTipPercentage() {
         System.out.println("\nWould you like to add a tip?");
         System.out.println("1) 15%");
@@ -115,38 +117,47 @@ public class CheckOutScreen {
             }
         }
     }
-    private void saveReceipt(String name, String phone, int orderId, String date,
-                             double subtotal, double tax, double tip, double total) {
-        String filename = String.format("receipts/%s-%d.txt",
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")), orderId);
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            writer.write(" BOBAHOLIC SHOP RECEIPT \n");
-            writer.write("------------------------------------------\n");
-            writer.write("Customer: " + name + "\n");
-            writer.write("Phone: " + phone + "\n");
-            writer.write("Order ID: #" + orderId + "\n");
-            writer.write("Date/Time: " + date + "\n\n");
+    private void saveReceipt(String name, String phone, int orderId, String date, double subtotal, double tax, double tip, double total) {
+        String filename = String.format("receipts/%s-%d.txt", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")), orderId);
 
-            writer.write("Items Ordered:\n");
-            for (MenuItem item : orderItems) {
-                writer.write(String.format("- %s  .......... $%.2f%n", item.getName(), item.calculatePrice()));
+        try {
+            //to check if our reciepts directory exists
+            File receiptDir = new File("receipts");
+            if (!receiptDir.exists()) {
+                receiptDir.mkdirs();
             }
 
-            writer.write("\n------------------------------------------\n");
-            writer.write(String.format("Subtotal: $%.2f%n", subtotal));
-            writer.write(String.format("Tax (9.75%%): $%.2f%n", tax));
-            writer.write(String.format("Tip: $%.2f%n", tip));
-            writer.write(String.format("TOTAL: $%.2f%n", total));
-            writer.write("------------------------------------------\n");
-            writer.write("Thank you for visiting \n");
-            writer.write("See you again! \n");
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+                writer.write(" BOBAHOLIC SHOP RECEIPT \n");
+                writer.write("------------------------------------------\n");
+                writer.write("Customer: " + name + "\n");
+                writer.write("Phone: " + phone + "\n");
+                writer.write("Order ID: #" + orderId + "\n");
+                writer.write("Date/Time: " + date + "\n\n");
 
-            System.out.println("📄 Receipt saved successfully: " + filename);
-        } catch (IOException e) {
-            System.out.println("️ Error saving receipt: " + e.getMessage());
-        }
+                writer.write("Items Ordered:\n");
+                for (MenuItem item : orderItems) {
+                    writer.write(item.toString() + "\n\n"); // prints the detailed breakdown
+                }
+
+                writer.write("\n----------------------------------------\n");
+                writer.write(String.format("Subtotal: $%.2f%n", subtotal));
+                writer.write(String.format("Tax (9.75%%): $%.2f%n", tax));
+                writer.write(String.format("Tip: $%.2f%n", tip));
+                writer.write(String.format("TOTAL: $%.2f%n", total));
+                writer.write("------------------------------------------\n");
+                writer.write("Thank you for visiting \n");
+                writer.write("See you again! \n");
+            }
+            System.out.println("\n📄 Receipt saved successfully: " + filename);
+            System.out.println("\n--- RECEIPT PREVIEW ---");
+            java.nio.file.Files.lines(java.nio.file.Path.of(filename)).forEach(System.out::println);
+
+            } catch (IOException e) {
+                System.out.println("❌ Error saving receipt: " + e.getMessage());
+            }
+
     }
-
-
 }
+

@@ -1,7 +1,7 @@
 package com.bobashop;
 import java.util.Scanner;
 
-public class CustomDrink {
+public class CustomDrinkScreen {
     private final Scanner scanner = new Scanner(System.in);
 
     public CustomBoba createCustomDrink() {
@@ -36,7 +36,7 @@ public class CustomDrink {
 
 
 
-// Fruit Tea flow
+// Fruit Tea
 // -------------------------------------------------------
 private CustomBoba buildFruitTea() {
     CustomBoba drink = new CustomBoba("Fruit Tea");
@@ -80,7 +80,7 @@ private CustomBoba buildFruitTea() {
 }
 
 
-// Milk Tea flow
+// Milk Tea
 // -------------------------------------------------------
 private CustomBoba buildMilkTea() {
     CustomBoba drink = new CustomBoba("Milk tea");
@@ -93,9 +93,10 @@ private CustomBoba buildMilkTea() {
     System.out.print("Choose milk type: ");
     String milk = scanner.nextLine().trim();
 
-    if (milk.isEmpty()) milk = "Whole"; // default
-    drink.setMilkType(milk);
+    if (milk.isEmpty()) milk = "Whole";// default
 
+    drink.setMilkType(milk);
+    drink.setCupSize(drink.askCupSize(scanner));
     drink.setTeaType(drink.askTeaType(scanner));
     drink.setToppings(drink.askToppings(scanner));
     drink.setSugarLevel(drink.askSugarLevel(scanner));
@@ -108,7 +109,7 @@ private CustomBoba buildMilkTea() {
 }
 
 
-//Coffee flow
+//Coffee
 // -------------------------------------------------------
 private CustomBoba buildCoffeeTea() {
     CustomBoba drink = new CustomBoba("CoffeTea");
@@ -162,13 +163,13 @@ private CustomBoba buildCoffeeTea() {
     return drink;
 }
 
-// -------------------------------------------------------
-// 🍵 4. Matcha flow
+
+// Matcha
 // -------------------------------------------------------
 private CustomBoba buildMatchaTea() {
     CustomBoba drink = new CustomBoba("Matcha");
     System.out.println("\n🍵 Making your Matcha Drink...");
-    drink.setCupSize(drink.askCupSize(scanner));
+
 
     System.out.println("\nChoose your Matcha flavor:");
     System.out.println("- Press C : for Classic Matcha");
@@ -184,6 +185,7 @@ private CustomBoba buildMatchaTea() {
             drink.setFlavor("Classic Matcha");
         }
     }
+    drink.setCupSize(drink.askCupSize(scanner));
     drink.setToppings(drink.askToppings(scanner));
     drink.setSugarLevel(drink.askSugarLevel(scanner));
     drink.setIceLevel(drink.askIceLevel(scanner));
