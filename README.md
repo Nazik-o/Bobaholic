@@ -66,11 +66,12 @@ This project demonstrates strong Object-Oriented Programming, including:
 # My UML:
 # ![IMG_0824 2](https://github.com/user-attachments/assets/b34b2801-e9fc-4d59-9cd3-9fc4fe517f21)
 
-# My code recording:
-# ![Uploading Screen Recording 2025-11-13 at 11.27.42 PM.gif…]()
-
 # My company logo:
-# <img width="1024" height="1024" alt="Bobaholic" src="https://github.com/user-attachments/assets/d68c13dd-b717-448a-8396-3cf59c9e76f3" />
+ <img width="1024" height="1024" alt="Bobaholic" src="https://github.com/user-attachments/assets/d68c13dd-b717-448a-8396-3cf59c9e76f3" />
+
+# My code recording:
+![Uploading Screen Recording 2025-11-13 at 11.27.42 PM.gif…]()
+
 
 
 
