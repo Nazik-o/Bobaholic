@@ -2,7 +2,7 @@
 
 # · · ─ ·✶· ─ · · Bobaholic· · ─ ·✶· ─ · ·
 - A fully customizable food & drink ordering system
-Meet Bobaholic — a cozy little boba shop living inside your terminal.
+Meet Bobaholic  a cozy little boba shop living inside your terminal.
 Here, customers can build dreamy drinks, add toppings, choose sweetness & ice levels, and grab a dessert
 
 This project demonstrates strong Object-Oriented Programming, including:
