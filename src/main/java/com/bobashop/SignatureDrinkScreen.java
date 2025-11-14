@@ -37,6 +37,8 @@ public class SignatureDrinkScreen extends DrinkBase {
         System.out.print(PURPLE + BOLD + "\nChoose your specialty drink (1–4): " + RESET);
 
         String choice = scanner.nextLine().trim();
+        ConsoleEffect.loadingBar();
+
 
         SignatureDrinkScreen drink;
         switch (choice) {

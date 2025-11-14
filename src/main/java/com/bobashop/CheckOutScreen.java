@@ -88,6 +88,8 @@ public class CheckOutScreen {
         // Confirmation
         System.out.print("Confirm purchase? (Y/N): ");
         String confirm = scanner.nextLine().trim().toUpperCase();
+        ConsoleEffect.loadingBar();
+
 
         if (confirm.equals("Y") || confirm.equals("YES")) {
             System.out.println("✅ Order confirmed! Generating receipt...");
@@ -169,6 +171,10 @@ public class CheckOutScreen {
                 writer.write(String.format("TOTAL: $%.2f%n", total));
                 writer.write("──────────────────────────────────────────────────────────────\n");
                 writer.write("Thank you for visiting \n");
+                writer.write("♡   ႔ ႔     \n");
+                writer.write("   ᠸ^ ^ ⸝⸝      \n");
+                writer.write("     |、˜〵\n");
+                writer.write("     じしˍ,)⁐̤ᐷ\n");
                 writer.write("See you again! \n");
             }
             System.out.println("\n📄 Receipt saved successfully: " + filename);
@@ -176,7 +182,7 @@ public class CheckOutScreen {
             java.nio.file.Files.lines(java.nio.file.Path.of(filename)).forEach(System.out::println);
 
             } catch (IOException e) {
-                System.out.println("❌ Error saving receipt: " + e.getMessage());
+                System.out.println(" Error saving receipt: " + e.getMessage());
             }
 
     }

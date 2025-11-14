@@ -93,20 +93,29 @@ public class HomeScreen {
         System.out.println(PURPLE + "╔═════════════════════════════════════════════════════════╗" + RESET);
         System.out.println(PURPLE + "║                                                         ║" + RESET);
         System.out.println(PURPLE + "║        " + ORANGE + BOLD + "WELCOME TO BOBAHOLIC" + RESET + PURPLE + "                ║" + RESET);
+        System.out.println(PURPLE + "║   (>*^o^)> \uD83E\uDDCB                                                      ║" + RESET);
         System.out.println(PURPLE + "║                                                         ║" + RESET);
         System.out.println(PURPLE + "╠═════════════════════════════════════════════════════════╣" + RESET);
         System.out.println(PURPLE + "║ " + ORANGE + BOLD + "1) New Order" + RESET + PURPLE + "                                ║" + RESET);
         System.out.println(PURPLE + "║ " + ORANGE + BOLD + "0) Exit" + RESET + PURPLE + "                                     ║" + RESET);
         System.out.println(PURPLE + "╚═════════════════════════════════════════════════════════╝" + RESET);
         System.out.print(PURPLE + BOLD + "Enter your choice: " + RESET);
-
-
         String input = scanner.nextLine().trim();
 
-            switch (input) {
-                case "1" -> startNewOrder();
+
+
+        ConsoleEffect.loadingBar();
+        switch (input) {
+                case "1" -> {
+                    startNewOrder();
+
+                }
                 case "0" -> {
                     System.out.println("\nThank you for visiting Bobaholic! Have a sweet day!" + RESET);
+                    System.out.println("⋆　  ⋏   ⪩⪨ ⋏　   ⟑   ⪩⪨  ⟑     ⋆");
+                    System.out.println("　  ⚞ ᴖ  ᴗ  ᴖ ⚟   ミo̶̶̷̤  ｡ o̴̶̷̤ ミ");
+                    System.out.println("♡ﾟ  づ🧋ど    ♡   づ🍵ど  *♡ﾟ");
+
                     running = false;
                 }
                 default -> System.out.println("Invalid input. Please choose 1 or 0.\n" + RESET);
@@ -119,6 +128,7 @@ public class HomeScreen {
         boolean ordering = true;
 
         while (ordering) {
+            System.out.println(".");
             System.out.println(PURPLE + "╔══════════════════════════════════════════════════════════════╗" + RESET);
             System.out.println(PURPLE + "║                    " + BOLD + ORANGE + "🧋 NEW ORDER MENU 🧋" + RESET + PURPLE + "                       ║" + RESET);
             System.out.println(PURPLE + "╚══════════════════════════════════════════════════════════════╝" + RESET);

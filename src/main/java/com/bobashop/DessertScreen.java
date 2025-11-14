@@ -144,6 +144,8 @@ public class DessertScreen {
 
             System.out.print("\nDo you confirm your dessert order? (Y/N): ");
             String confirm = scanner.nextLine().trim().toUpperCase();
+            ConsoleEffect.loadingBar();
+
 
             if (confirm.equals("Y") || confirm.equals("YES")) {
                 System.out.println("\n✅ Your dessert order has been confirmed!");

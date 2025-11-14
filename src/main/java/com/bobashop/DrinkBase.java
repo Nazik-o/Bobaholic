@@ -103,14 +103,14 @@ public abstract class DrinkBase extends MenuItem {
 
     //Sugar level:
     protected String askSugarLevel(Scanner scanner) {
-        System.out.println("\n🧂 Choose Your Sugar Level:");
-        System.out.println("-----------------------------");
+        System.out.println("\n Choose Your Sugar Level:");
+        System.out.println("· · ─ ·✶· ─ · ·· · ─ ·✶· ─ · ·");
         System.out.println("Press 1 - for 0%");
         System.out.println("Press 2 - for 25%");
         System.out.println("Press 3 - for 50%");
         System.out.println("Press 4 - for 75%");
         System.out.println("Press 5 - for 100%");
-        System.out.println("-----------------------------");
+        System.out.println("· · ─ ·✶· ─ · ·· · ─ ·✶· ─ · ·");
 
         String sugarLevel = "";
         while (true) {
@@ -139,12 +139,12 @@ public abstract class DrinkBase extends MenuItem {
 //Ice level:
 protected String askIceLevel(Scanner scanner) {
     System.out.println("\n🧊 Choose Your Ice Level: 🧊");
-    System.out.println("-----------------------------");
+    System.out.println("∘₊✧──────✧₊∘∘₊✧──────✧₊∘∘₊✧──────✧₊∘");
     System.out.println("Press 1 - for Regular Ice");
     System.out.println("Press 2 - for Less Ice");
     System.out.println("Press 3 - for No Ice");
     System.out.println("Press 4 - for Hot (+$1.00)");
-    System.out.println("-----------------------------");
+    System.out.println("∘₊✧──────✧₊∘∘₊✧──────✧₊∘∘₊✧──────✧₊∘");
 
     String iceLevel = "";
     while (true) {
@@ -170,11 +170,11 @@ protected String askIceLevel(Scanner scanner) {
 //Tea type:
 protected String askTeaType(Scanner scanner) {
     System.out.println("\n🍃 Choose Your Tea Type 🍃:");
-    System.out.println("-----------------------------");
+    System.out.println("─── ⋆⋅☆⋅⋆ ────── ⋆⋅☆⋅⋆ ────── ⋆⋅☆⋅⋆ ───");
     System.out.println("Press 1 - for Black Tea");
     System.out.println("Press 2 - for Green Tea");
     System.out.println("Press 3 - for Oolong Tea");
-    System.out.println("-----------------------------");
+    System.out.println("─── ⋆⋅☆⋅⋆ ────── ⋆⋅☆⋅⋆ ────── ⋆⋅☆⋅⋆ ───");
 
     String teaType = "";
     while (true) {
