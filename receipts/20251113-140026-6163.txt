@@ -1,0 +1,34 @@
+ BOBAHOLIC SHOP RECEIPT 
+------------------------------------------
+Customer: Mei
+Phone: 123456789
+Order ID: #6163
+Date/Time: 2025-11-13 13:59:51
+
+Items Ordered:
+
+------------------------------
+Drink: Fruit Tea
+Cup Size: Medium
+Flavor: N/A
+Milk: N/A
+Tea: Black Tea
+Sugar Level: 0%
+Ice Level: Regular
+Toppings: Boba
+------------------------------
+Base: $1.00
+Size Add-on: $1.00
+Toppings: $0.75
+➡ Drink Total: $2.75
+------------------------------
+
+
+----------------------------------------
+Subtotal: $2.75
+Tax (9.75%): $0.27
+Tip: $0.00
+TOTAL: $3.02
+------------------------------------------
+Thank you for visiting 
+See you again! 

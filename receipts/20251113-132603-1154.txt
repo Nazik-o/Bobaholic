@@ -1,0 +1,18 @@
+ BOBAHOLIC SHOP RECEIPT 
+------------------------------------------
+Customer: Mei
+Phone: 1234567898
+Order ID: #1154
+Date/Time: 2025-11-13 13:25:34
+
+Items Ordered:
+- Fruit Tea  .......... $6.00
+
+----------------------------------------
+Subtotal: $6.00
+Tax (9.75%): $0.59
+Tip: $0.90
+TOTAL: $7.48
+------------------------------------------
+Thank you for visiting 
+See you again! 

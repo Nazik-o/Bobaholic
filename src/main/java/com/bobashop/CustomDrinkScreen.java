@@ -1,19 +1,23 @@
 package com.bobashop;
 import java.util.Scanner;
 
+import static com.bobashop.TextStyle.*;
+
 public class CustomDrinkScreen {
     private final Scanner scanner = new Scanner(System.in);
 
     public CustomBoba createCustomDrink() {
+        System.out.println(PURPLE + "╔══════════════════════════════════════════════════════════════╗" + RESET);
+        System.out.println("                 " + BOLD + "Create Your Custom Drink!🧋" + RESET);
+        System.out.println(PURPLE + "╚══════════════════════════════════════════════════════════════╝" + RESET);
 
-        System.out.println("\n🧋 Create Your Custom Drink!🧋");
-        System.out.println("-----------------------------");
         System.out.println("1) Fruit Tea");
         System.out.println("2) Milk Tea");
         System.out.println("3) Coffee");
         System.out.println("4) Matcha");
         System.out.print("Choose a drink type: ");
         String choice = scanner.nextLine().trim();
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
         if (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4")) {
         } else {
@@ -42,7 +46,7 @@ private CustomBoba buildFruitTea() {
     CustomBoba drink = new CustomBoba("Fruit Tea");
     System.out.println("\n Building your Fruit Tea...");
 
-
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
     String flavor = "";
     System.out.println("Available Flavors: Passion fruit, Mango, Orange, Strawberry, Watermelon");
     while (true) {
@@ -54,6 +58,7 @@ private CustomBoba buildFruitTea() {
         System.out.println("- Press W for Watermelon");
         System.out.print("Enter choice: ");
         String input = scanner.nextLine().trim().toUpperCase();
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         switch (input) {
             case "P" -> flavor = "Passion fruit";
             case "M" -> flavor = "Mango";
@@ -84,6 +89,7 @@ private CustomBoba buildFruitTea() {
 // -------------------------------------------------------
 private CustomBoba buildMilkTea() {
     CustomBoba drink = new CustomBoba("Milk tea");
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
     System.out.println("\n🥛 Building your Milk Tea...");
     System.out.println("Milk options ($1.00 each): Whole, Almond, Soy, Lactose-Free");
     System.out.println("- Press W : for Whole milk");
@@ -92,6 +98,7 @@ private CustomBoba buildMilkTea() {
     System.out.println("- Press L : for Lactose-Free milk");
     System.out.print("Choose milk type: ");
     String milk = scanner.nextLine().trim();
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
     if (milk.isEmpty()) milk = "Whole";// default
 
@@ -110,16 +117,17 @@ private CustomBoba buildMilkTea() {
 
 
 //Coffee
-// -------------------------------------------------------
 private CustomBoba buildCoffeeTea() {
     CustomBoba drink = new CustomBoba("CoffeTea");
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
     System.out.println("\n☕ Building your Coffee Drink...\n");
-    System.out.println("Choose your coffe:");
+    System.out.println("Choose your coffee:");
     System.out.println("- Press A : for Americano");
     System.out.println("- Press L : for Latte");
     System.out.println("- Press C: for Cappuccino");
     String coffee = scanner.nextLine().trim().toUpperCase();
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
     String coffeeType = switch (coffee) {
         case "A" -> "Americano";
@@ -136,6 +144,7 @@ private CustomBoba buildCoffeeTea() {
     System.out.println("- Press N : for None");
     System.out.print("Choose milk type: ");
     String milk = scanner.nextLine().trim();
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
     if(!milk.equalsIgnoreCase("N")) {
     drink.setMilkType(milk.isEmpty() ? "Whole" : milk);
@@ -165,9 +174,10 @@ private CustomBoba buildCoffeeTea() {
 
 
 // Matcha
-// -------------------------------------------------------
+
 private CustomBoba buildMatchaTea() {
     CustomBoba drink = new CustomBoba("Matcha");
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
     System.out.println("\n🍵 Making your Matcha Drink...");
 
 
@@ -176,6 +186,7 @@ private CustomBoba buildMatchaTea() {
     System.out.println("- Press S : for Strawberry Matcha");
     System.out.print("Enter choice: ");
     String input = scanner.nextLine().trim().toUpperCase();
+    System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
     switch (input) {
         case "1" -> drink.setFlavor("Classic Matcha");

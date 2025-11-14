@@ -1,0 +1,29 @@
+ BOBAHOLIC SHOP RECEIPT 
+------------------------------------------
+Customer: abc
+Phone: 146345432
+Order ID: #1235
+Date/Time: 2025-11-13 17:25:12
+
+Items Ordered:
+
+------------------------------------
+Drink: Strawberry Matcha
+Cup Size: Medium
+Flavor: Strawberry
+Tea Type: null
+Toppings: Strawberry Topping
+Sugar: 100%
+Ice: Regular
+Price: $6.75
+------------------------------------
+
+
+----------------------------------------
+Subtotal: $6.75
+Tax (9.75%): $0.66
+Tip: $0.00
+TOTAL: $7.41
+------------------------------------------
+Thank you for visiting 
+See you again! 

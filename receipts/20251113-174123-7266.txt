@@ -1,0 +1,19 @@
+ BOBAHOLIC SHOP RECEIPT 
+------------------------------------------
+Customer: abc
+Phone: 1234567
+Order ID: #7266
+Date/Time: 2025-11-13 17:41:03
+
+Items Ordered:
+Desserts: Cream Puff (Vanilla) - $3.00;  - $3.00
+
+
+----------------------------------------
+Subtotal: $3.00
+Tax (9.75%): $0.29
+Tip: $0.45
+TOTAL: $3.74
+------------------------------------------
+Thank you for visiting 
+See you again! 

@@ -1,0 +1,50 @@
+╔══════════════════════════════════════════════════════════════╗
+                        BOBAHOLIC RECEIPT
+╚══════════════════════════════════════════════════════════════╝
+
+Customer: abc
+Phone: 1234567898
+Order ID: #9424
+Date/Time: 2025-11-13 17:50:23
+
+──────────────────────────────────────────────────────────────
+Items Ordered:
+
+------------------------------
+Drink: Fruit Tea
+Cup Size: Large
+Flavor: N/A
+Milk: N/A
+Tea: Black Tea
+Sugar Level: 0%
+Ice Level: Regular
+Toppings: boba
+------------------------------
+Base: $1.00
+Size Add-on: $2.50
+Toppings: $0.75
+➡ Drink Total: $4.25
+------------------------------
+
+
+------------------------------------
+Drink: Brown Sugar Milk Tea
+Cup Size: Large
+Milk: Whole Milk
+Tea Type: Black Tea
+Toppings: Boba
+Sugar: 100%
+Ice: Regular
+Price: $6.75
+------------------------------------
+
+Desserts: Cheesecake (Strawberry) - $4.00; Cream Puff (Chocolate) - $3.00;  - $7.00
+
+──────────────────────────────────────────────────────────────
+Subtotal: $18.00
+Tax (9.75%): $1.76
+Tip: $1.98
+TOTAL: $21.74
+──────────────────────────────────────────────────────────────
+Thank you for visiting 
+See you again! 

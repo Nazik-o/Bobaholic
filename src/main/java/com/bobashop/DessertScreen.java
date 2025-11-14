@@ -2,6 +2,8 @@ package com.bobashop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.bobashop.TextStyle.*;
+
 public class DessertScreen {
     private static final Scanner scanner = new Scanner(System.in);
     static class DessertItem {
@@ -29,13 +31,17 @@ public class DessertScreen {
         public ArrayList<DessertItem> showDessertMenu() {
             ArrayList<DessertItem> orderList = new ArrayList<>();
 
-            System.out.println("\n Welcome to the Dessert Menu!");
-            System.out.println("--------------------------------");
-            System.out.println("1) Cream Puff  ($3.00)");
-            System.out.println("2) Macaron    ($2.50)");
-            System.out.println("3) Cheesecake ($4.00)");
-            System.out.println("4) Done (no more desserts)");
-            System.out.print("Choose an item (1–4): ");
+            System.out.println(PURPLE + "╔══════════════════════════════════════════════════════════════╗" + RESET);
+            System.out.println(PURPLE + "║                      " + BOLD + "🍰 DESSERT  MENU 🍰" + RESET + PURPLE + "                      ║" + RESET);
+            System.out.println(PURPLE + "╠══════════════════════════════════════════════════════════════╣" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "1)" + RESET + " Cream Puff       - $3.00                           " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "2)" + RESET + " Macaron          - $2.50                           " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "3)" + RESET + " Cheesecake       - $4.00                           " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "4)" + RESET + " Done (finish selection)                           " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "╚══════════════════════════════════════════════════════════════╝" + RESET);
+
+
+
 
             while (true) {
                 String choice = scanner.nextLine().trim();
@@ -67,12 +73,20 @@ public class DessertScreen {
         }
 
         private DessertItem selectFlavor(String dessertName, double basePrice) {
-            System.out.println("\nChoose your " + dessertName + " flavor:");
-            System.out.println(" - V) Vanilla");
-            System.out.println(" - C) Chocolate");
-            System.out.println(" - T) Taro");
-            System.out.println(" - S) Strawberry");
-            System.out.print("Enter choice: ");
+            System.out.println();
+            System.out.println(PURPLE + "╔══════════════════════════════════════════════════════════╗" + RESET);
+            System.out.println(PURPLE + "║                 " + BOLD + "CHOOSE YOUR FLAVOR" + RESET + PURPLE + "                 ║" + RESET);
+            System.out.println(PURPLE + "║             " + ORANGE + BOLD + dessertName.toUpperCase() + RESET + PURPLE + " (Flavor Options)            ║" + RESET);
+            System.out.println(PURPLE + "╠══════════════════════════════════════════════════════════╣" + RESET);
+
+            System.out.println(PURPLE + "║  " + ORANGE + "V)" + RESET + " Vanilla                                            " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "C)" + RESET + " Chocolate                                          " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "T)" + RESET + " Taro                                               " + PURPLE + "║" + RESET);
+            System.out.println(PURPLE + "║  " + ORANGE + "S)" + RESET + " Strawberry                                         " + PURPLE + "║" + RESET);
+
+            System.out.println(PURPLE + "╚══════════════════════════════════════════════════════════╝" + RESET);
+            System.out.print(PURPLE + BOLD + "Enter your choice: " + RESET);
+
 
             String flavor = "";
             while (true) {
@@ -103,16 +117,29 @@ public class DessertScreen {
                 System.out.println("\nNo desserts added.");
                 return false;
             }
-
             double total = 0;
-            System.out.println("\n Dessert Summary:");
-            System.out.println("--------------------------------");
+
+            final String PURPLE = "\u001B[38;2;186;85;211m";
+            final String ORANGE = "\u001B[38;2;255;165;0m";
+            final String BOLD   = "\u001B[1m";
+            final String RESET  = "\u001B[0m";
+
+            System.out.println();
+            System.out.println(PURPLE + "╔══════════════════════════════════════════════════════╗" + RESET);
+            System.out.println(PURPLE + "║   " + ORANGE + BOLD + "🍮  DESSERT SUMMARY  🍮" + RESET + PURPLE + "                                 ║" + RESET);
+            System.out.println(PURPLE + "╚══════════════════════════════════════════════════════╝" + RESET);
+
             for (DessertItem item : desserts) {
                 System.out.println("- " + item);
                 total += item.getPrice();
             }
-            System.out.println("--------------------------------");
-            System.out.printf("Dessert Total: $%.2f%n", total);
+
+            System.out.println(PURPLE + "╔══════════════════════════════════════════════════════╗" + RESET);
+            System.out.printf("  Dessert Total: $%.2f%n", total);
+            System.out.println(PURPLE + "╚══════════════════════════════════════════════════════╝" + RESET);
+
+
+
 
 
             System.out.print("\nDo you confirm your dessert order? (Y/N): ");
@@ -123,7 +150,7 @@ public class DessertScreen {
                 return true;
             } else {
                 System.out.println("\n❌ Dessert order canceled. Returning to menu...");
-                return false; // user wants to go back
+                return false;
             }
         }
 

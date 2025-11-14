@@ -32,13 +32,13 @@ public class CustomBoba extends DrinkBase {
     public double calculatePrice() {
         double total = 0.0;
 
-        // 🧋 Cup size pricing
+        //Cup size pricing
         if (cupSize != null) {
             if (cupSize.equalsIgnoreCase("Medium")) total += 1.00;
             else if (cupSize.equalsIgnoreCase("Large")) total += 2.50;
         }
 
-        // ☕ Base drink pricing
+        // Base drink pricing
         switch (name.toLowerCase()) {
             case "fruit tea" -> total += 1.00;
             case "milk tea" -> total += 1.00;
@@ -144,7 +144,7 @@ public String toString() {
     if (milkCost > 0) sb.append(String.format("\nMilk: $%.2f", milkCost));
     sb.append(String.format("\nToppings: $%.2f", toppingCost));
     if (hotCost > 0) sb.append(String.format("\nHot Option: $%.2f", hotCost));
-    sb.append(String.format("\n➡ Drink Total: $%.2f", total));
+    sb.append(String.format("\n Drink Total: $%.2f", total));
     sb.append("\n------------------------------");
     return sb.toString();
 

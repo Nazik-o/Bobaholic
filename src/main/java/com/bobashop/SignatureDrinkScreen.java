@@ -2,6 +2,9 @@ package com.bobashop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.bobashop.TextStyle.PURPLE;
+import static com.bobashop.TextStyle.RESET;
+
 public class SignatureDrinkScreen extends DrinkBase {
 
     public SignatureDrinkScreen(String name, double price) {
@@ -14,14 +17,24 @@ public class SignatureDrinkScreen extends DrinkBase {
     public static SignatureDrinkScreen chooseSpecialtyDrink() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\n 🌟Specialty Drinks Menu🌟");
-        System.out.println("---------------------------------------");
-        System.out.println("1) Passion Fruit Tea ............ $6.75");
-        System.out.println("2) Brown Sugar Milk Tea ......... $6.75");
-        System.out.println("3) Coffee Milk Tea .............. $6.75");
-        System.out.println("4) Strawberry Matcha ............ $6.75");
-        System.out.println("---------------------------------------");
-        System.out.print("Choose your specialty drink (1–4): ");
+        final String PURPLE = "\u001B[38;2;186;85;211m";
+        final String ORANGE = "\u001B[38;2;255;165;0m";
+        final String BOLD   = "\u001B[1m";
+        final String RESET  = "\u001B[0m";
+
+
+
+        System.out.println(PURPLE + "╔══════════════════════════════════════════════════════════════╗" + RESET);
+        System.out.println(PURPLE + "║                   " + BOLD + "🌟 SPECIALTY DRINKS 🌟" + RESET + PURPLE + "                  ║" + RESET);
+        System.out.println(PURPLE + "╚══════════════════════════════════════════════════════════════╝" + RESET);
+
+// MENU OPTIONS
+        System.out.println(ORANGE + BOLD + "1)" + RESET + " Passion Fruit Tea ............ $6.75");
+        System.out.println(ORANGE + BOLD + "2)" + RESET + " Brown Sugar Milk Tea ......... $6.75");
+        System.out.println(ORANGE + BOLD + "3)" + RESET + " Coffee Milk Tea .............. $6.75");
+        System.out.println(ORANGE + BOLD + "4)" + RESET + " Strawberry Matcha ............ $6.75");
+
+        System.out.print(PURPLE + BOLD + "\nChoose your specialty drink (1–4): " + RESET);
 
         String choice = scanner.nextLine().trim();
 
@@ -50,6 +63,7 @@ public class SignatureDrinkScreen extends DrinkBase {
         }
     }
     private static SignatureDrinkScreen createPassionFruitTea() {
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         SignatureDrinkScreen drink = new SignatureDrinkScreen("Passion Fruit Tea", 6.75);
         drink.cupSize = "Large";
         drink.flavor = "Passion Fruit";
@@ -59,10 +73,13 @@ public class SignatureDrinkScreen extends DrinkBase {
         drink.toppings.add("Lychee Jelly");
         drink.sugarLevel = "100%";
         drink.iceLevel = "Regular";
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         return drink;
     }
     private static SignatureDrinkScreen createBrownSugarMilkTea() {
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         SignatureDrinkScreen drink = new SignatureDrinkScreen("Brown Sugar Milk Tea", 6.75);
+
         drink.cupSize = "Large";
         drink.milkType = "Whole Milk";
         drink.teaType = "Black Tea";
@@ -70,9 +87,11 @@ public class SignatureDrinkScreen extends DrinkBase {
         drink.toppings.add("Boba");
         drink.sugarLevel = "100%";
         drink.iceLevel = "Regular";
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         return drink;
     }
     private static SignatureDrinkScreen createCoffeeMilkTea() {
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         SignatureDrinkScreen drink = new SignatureDrinkScreen("Coffee Milk Tea", 6.75);
         drink.cupSize = "Large";
         drink.teaType = "Black Tea";
@@ -80,16 +99,19 @@ public class SignatureDrinkScreen extends DrinkBase {
         drink.toppings.add("Boba");
         drink.sugarLevel = "100%";
         drink.iceLevel = "Regular";
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         return drink;
     }
     private static SignatureDrinkScreen createStrawberryMatcha() {
         SignatureDrinkScreen drink = new SignatureDrinkScreen("Strawberry Matcha", 6.75);
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         drink.cupSize = "Medium";
         drink.flavor = "Strawberry";
         drink.toppings = new ArrayList<>();
         drink.toppings.add("Strawberry Topping");
         drink.sugarLevel = "100%";
         drink.iceLevel = "Regular";
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         return drink;
     }
 

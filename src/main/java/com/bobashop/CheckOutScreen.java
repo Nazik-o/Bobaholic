@@ -9,11 +9,14 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import static com.bobashop.TextStyle.PURPLE;
+import static com.bobashop.TextStyle.RESET;
+
 public class CheckOutScreen {
 
     private final Scanner scanner = new Scanner(System.in);
     private final ArrayList<MenuItem> orderItems;
-    private final double SALES_TAX = 0.0975; // Californian sales tax : 9.75%
+    private final double SALES_TAX = 0.0975; // Californian sales tax is 9.75%
     private double tipPercent = 0.0;
 
     public CheckOutScreen(ArrayList<MenuItem> orderItems) {
@@ -41,12 +44,22 @@ public class CheckOutScreen {
         String formattedDate = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
         // Display order summary
-        System.out.println("\n --- CHECKOUT SUMMARY 🧾 ---");
-        System.out.println("Customer: " + customerName);
-        System.out.println("Phone: " + customerPhone);
-        System.out.println("Order ID: #" + orderId);
-        System.out.println("Date/Time: " + formattedDate);
-        System.out.println("-------------------------------");
+        final String PURPLE = "\u001B[38;2;186;85;211m";
+        final String ORANGE = "\u001B[38;2;255;165;0m";
+        final String BOLD   = "\u001B[1m";
+        final String RESET  = "\u001B[0m";
+
+        System.out.println();
+        System.out.println(PURPLE + "╔══════════════════════════════════════════════════════════════╗" + RESET);
+        System.out.println("                 " + BOLD + "🧾 CHECKOUT SUMMARY 🧾" + RESET);
+        System.out.println(PURPLE + "╚══════════════════════════════════════════════════════════════╝" + RESET);
+
+        System.out.println("Customer: "   + ORANGE + customerName   + RESET);
+        System.out.println("Phone:    "   + ORANGE + customerPhone  + RESET);
+        System.out.println("Order ID: #"  + ORANGE + orderId        + RESET);
+        System.out.println("Date/Time: "  + ORANGE + formattedDate  + RESET);
+
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
         double subtotal = 0.0;
         for (MenuItem item : orderItems) {
@@ -62,12 +75,15 @@ public class CheckOutScreen {
         double tipAmount = subtotal * tipPercent;
         double total = subtotal + tax + tipAmount;
 
-        System.out.println("-------------------------------");
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
+
         System.out.printf("Subtotal:            $%.2f%n", subtotal);
         System.out.printf("Sales Tax (9.75%%):   $%.2f%n", tax);
         System.out.printf("Tip (%.0f%%):         $%.2f%n", tipPercent * 100, tipAmount);
-        System.out.printf("💰 Total:             $%.2f%n", total);
-        System.out.println("-------------------------------");
+
+        System.out.println(BOLD + "💰 Total:             $" + String.format("%.2f", total) + RESET);
+
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
         // Confirmation
         System.out.print("Confirm purchase? (Y/N): ");
@@ -82,12 +98,14 @@ public class CheckOutScreen {
     }
 
     private double askTipPercentage() {
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
         System.out.println("\nWould you like to add a tip?");
         System.out.println("1) 15%");
         System.out.println("2) 18%");
         System.out.println("3) 20%");
         System.out.println("4) Custom Amount");
         System.out.println("5) No Tip");
+        System.out.println(PURPLE + "──────────────────────────────────────────────────────────────" + RESET);
 
         System.out.print("Choose option: ");
         String choice = scanner.nextLine().trim();
@@ -129,24 +147,27 @@ public class CheckOutScreen {
             }
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-                writer.write(" BOBAHOLIC SHOP RECEIPT \n");
-                writer.write("------------------------------------------\n");
+                // HEADER FRAME
+                writer.write("╔══════════════════════════════════════════════════════════════╗\n");
+                writer.write("                        BOBAHOLIC RECEIPT\n");
+                writer.write("╚══════════════════════════════════════════════════════════════╝\n\n");
+
                 writer.write("Customer: " + name + "\n");
                 writer.write("Phone: " + phone + "\n");
                 writer.write("Order ID: #" + orderId + "\n");
                 writer.write("Date/Time: " + date + "\n\n");
-
+                writer.write("──────────────────────────────────────────────────────────────\n");
                 writer.write("Items Ordered:\n");
                 for (MenuItem item : orderItems) {
                     writer.write(item.toString() + "\n\n"); // prints the detailed breakdown
                 }
 
-                writer.write("\n----------------------------------------\n");
+                writer.write("──────────────────────────────────────────────────────────────\n");
                 writer.write(String.format("Subtotal: $%.2f%n", subtotal));
                 writer.write(String.format("Tax (9.75%%): $%.2f%n", tax));
                 writer.write(String.format("Tip: $%.2f%n", tip));
                 writer.write(String.format("TOTAL: $%.2f%n", total));
-                writer.write("------------------------------------------\n");
+                writer.write("──────────────────────────────────────────────────────────────\n");
                 writer.write("Thank you for visiting \n");
                 writer.write("See you again! \n");
             }
